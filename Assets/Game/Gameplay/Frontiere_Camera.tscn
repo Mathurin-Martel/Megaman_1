@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://fq7g8gnwxsp4"]
+
+[ext_resource type="Script" uid="uid://b5rfxqneenrbm" path="res://Assets/Scripts/Gameplay/frontiere_camera.gd" id="1_pnlfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl7ng"]
+resource_local_to_scene = true
+size = Vector2(256, 8)
+
+[node name="FrontiereCamera" type="Area2D" unique_id=1429713606]
+script = ExtResource("1_pnlfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1206100905]
+shape = SubResource("RectangleShape2D_nl7ng")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

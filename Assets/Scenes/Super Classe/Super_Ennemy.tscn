@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://co63jy3d0sup"]
+
+[ext_resource type="Texture2D" uid="uid://bteb0exlortpw" path="res://Assets/Sprites/Characters_Objects/Ennemies/Mobs/common_ennemy_death_explosion.png" id="1_3avet"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uv42h"]
+
+[sub_resource type="Animation" id="Animation_3avet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Body Damage:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Hitbox:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Invicibility Box:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hi5di"]
+resource_name = "common death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(1, 7, 4, 4), Rect2(6, 1, 16, 16), Rect2(23, 3, 12, 12), Rect2(36, 4, 10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Body Damage:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Invicibility Box:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Hitbox:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1qw74"]
+_data = {
+&"RESET": SubResource("Animation_3avet"),
+&"common death": SubResource("Animation_hi5di")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl7ng"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymiqe"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olwun"]
+resource_local_to_scene = true
+
+[node name="Ennemy" type="CharacterBody2D" unique_id=1610409502]
+collision_layer = 2
+collision_mask = 768
+
+[node name="Animation" type="Node2D" parent="." unique_id=544618211]
+
+[node name="SpecificAnimations" type="AnimationPlayer" parent="Animation" unique_id=1469798624]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_uv42h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation" unique_id=360146476]
+
+[node name="CommonAnimations" type="AnimationPlayer" parent="Animation" unique_id=1178603411]
+libraries/ = SubResource("AnimationLibrary_1qw74")
+
+[node name="Explosion" type="Sprite2D" parent="Animation" unique_id=671039216]
+visible = false
+texture = ExtResource("1_3avet")
+region_enabled = true
+region_rect = Rect2(1, 7, 4, 4)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1894504004]
+
+[node name="Body Damage" type="Area2D" parent="." unique_id=139397086]
+
+[node name="Body Damage" type="CollisionShape2D" parent="Body Damage" unique_id=638401201]
+shape = SubResource("RectangleShape2D_nl7ng")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1864913441]
+shape = SubResource("RectangleShape2D_ymiqe")
+
+[node name="Invicibility Box" type="Area2D" parent="." unique_id=232148537]
+
+[node name="Invicibility Box" type="CollisionShape2D" parent="Invicibility Box" unique_id=1918572610]
+shape = SubResource("RectangleShape2D_olwun")

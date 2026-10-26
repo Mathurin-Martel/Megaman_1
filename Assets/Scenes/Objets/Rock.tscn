@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://d4mxxj8vk3bb7"]
+
+[ext_resource type="Script" uid="uid://c08x3dwk2qkn5" path="res://Assets/Scripts/Characters_Objects/Objets/Rock.gd" id="1_eef0c"]
+[ext_resource type="Shader" uid="uid://c1qd7oxj7bbv2" path="res://Assets/Shaders/Rock.gdshader" id="2_biyms"]
+[ext_resource type="Texture2D" uid="uid://csbigfyfw8e17" path="res://Assets/Sprites/Characters_Objects/Objets/Rocks.png" id="2_jgq5d"]
+[ext_resource type="Script" uid="uid://do5528y04jwlc" path="res://Assets/Scripts/Characters_Objects/Objets/Rock_Shader.gd" id="4_jgq5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6torn"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eef0c"]
+size = Vector2(36, 36)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6gpq"]
+shader = ExtResource("2_biyms")
+shader_parameter/using_shader = false
+shader_parameter/shader_color_1 = Vector4(0, 0, 0, 0)
+shader_parameter/shader_color_2 = Vector4(0, 0, 0, 0)
+shader_parameter/shader_color_3 = Vector4(0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_jgq5d"]
+resource_name = "Briques"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/using_shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bh16g"]
+resource_name = "Metal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(99, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/using_shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ftvtw"]
+resource_name = "Ordinateur"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(33, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/using_shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jr16v"]
+resource_name = "Poussiere"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(66, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/using_shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6torn"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 1, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/using_shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_biyms"]
+resource_name = "Shining"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/using_shader")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bh16g"]
+_data = {
+&"Briques": SubResource("Animation_jgq5d"),
+&"Metal": SubResource("Animation_bh16g"),
+&"Ordinateur": SubResource("Animation_ftvtw"),
+&"Poussiere": SubResource("Animation_jr16v"),
+&"RESET": SubResource("Animation_6torn"),
+&"Shining": SubResource("Animation_biyms")
+}
+
+[node name="Rock" type="StaticBody2D" unique_id=1919240405]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_eef0c")
+level_name = 1
+horizontal_speed = 4
+vertical_speed = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1999934126]
+shape = SubResource("RectangleShape2D_6torn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1012595796]
+collision_mask = 259
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=737657975]
+shape = SubResource("RectangleShape2D_eef0c")
+
+[node name="Animation" type="Node2D" parent="." unique_id=5133472]
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation" unique_id=463544813]
+material = SubResource("ShaderMaterial_a6gpq")
+texture = ExtResource("2_jgq5d")
+region_enabled = true
+region_rect = Rect2(0, 1, 32, 32)
+script = ExtResource("4_jgq5d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation" unique_id=250129250]
+libraries/ = SubResource("AnimationLibrary_bh16g")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1186217514]
+rect = Rect2(-16, -16, 32, 32)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

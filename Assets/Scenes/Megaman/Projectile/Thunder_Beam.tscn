@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bs20b76eh85h5"]
+
+[ext_resource type="PackedScene" uid="uid://d0aurdcydf4w7" path="res://Assets/Scenes/Super Classe/Super_Projectile_MegaMan.tscn" id="1_3i15o"]
+[ext_resource type="Script" uid="uid://beehm2btdwy5v" path="res://Assets/Scripts/Characters_Objects/Megaman/Projectile/Thunder_Beam.gd" id="2_2soav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2soav"]
+resource_local_to_scene = true
+size = Vector2(32, 40)
+
+[sub_resource type="Animation" id="Animation_cner1"]
+resource_name = "Elec Horizontal"
+length = 1.05
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.8999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(1, 181, 32, 40), Rect2(39, 181, 38, 40), Rect2(85, 181, 38, 32), Rect2(128, 181, 32, 32), Rect2(168, 181, 32, 40), Rect2(205, 189, 30, 32), Rect2(238, 181, 32, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area2D/CollisionShape2D:shape:size")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32, 40), Vector2(38, 40), Vector2(38, 32), Vector2(32, 32), Vector2(32, 40), Vector2(30, 32), Vector2(32, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../VisibleOnScreenNotifier2D:rect")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(-16, -20, 32, 40), Rect2(-19, -20, 38, 40), Rect2(-19, -16, 38, 32), Rect2(-16, -16, 32, 32), Rect2(-16, -20, 32, 40), Rect2(-15, -16, 30, 32), Rect2(-16, -20, 32, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_3i15o"]
+resource_name = "Elec Vertical"
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(1, 148, 11, 32), Rect2(20, 148, 11, 32), Rect2(42, 148, 11, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area2D/CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../VisibleOnScreenNotifier2D:rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(-5.5, -16, 11, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2soav"]
+_data = {
+&"Elec Horizontal": SubResource("Animation_cner1"),
+&"Elec Vertical": SubResource("Animation_3i15o")
+}
+
+[node name="Projectile Elec" unique_id=1395822103 instance=ExtResource("1_3i15o")]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_2soav")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1637114378) index="0" unique_id=1017653585]
+shape = SubResource("RectangleShape2D_2soav")
+
+[node name="Sprite2D" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="0" unique_id=541168850]
+region_rect = Rect2(1, 181, 32, 40)
+
+[node name="AnimationPlayer" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="1" unique_id=1084327605]
+libraries/ = SubResource("AnimationLibrary_2soav")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2" unique_id=763189694]
+rect = Rect2(-16, -20, 32, 40)
+
+[node name="CollisionShape2Duplicate" parent="." index="3" unique_id=721186326]
+shape = SubResource("RectangleShape2D_2soav")

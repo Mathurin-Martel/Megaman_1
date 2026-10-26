@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bgmrr8y564cg0"]
+
+[ext_resource type="PackedScene" uid="uid://d0aurdcydf4w7" path="res://Assets/Scenes/Super Classe/Super_Projectile_MegaMan.tscn" id="1_hdj8j"]
+[ext_resource type="Script" uid="uid://ddb5yt8muwryd" path="res://Assets/Scripts/Characters_Objects/Megaman/Projectile/Ice_Slasher.gd" id="2_4cssm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cssm"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_5lq8m"]
+resource_name = "Ice"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(70, 1, 16, 16), Rect2(87, 1, 16, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb1w2"]
+_data = {
+&"Ice": SubResource("Animation_5lq8m")
+}
+
+[node name="Projectile Ice" unique_id=1395822103 instance=ExtResource("1_hdj8j")]
+script = ExtResource("2_4cssm")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1637114378) index="0" unique_id=1017653585]
+shape = SubResource("RectangleShape2D_4cssm")
+
+[node name="Sprite2D" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="0" unique_id=541168850]
+region_rect = Rect2(70, 1, 16, 16)
+
+[node name="AnimationPlayer" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="1" unique_id=1084327605]
+libraries/ = SubResource("AnimationLibrary_sb1w2")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2" unique_id=763189694]
+rect = Rect2(-8, -8, 16, 16)
+
+[node name="CollisionShape2Duplicate" parent="." index="3" unique_id=721186326]
+shape = SubResource("RectangleShape2D_4cssm")

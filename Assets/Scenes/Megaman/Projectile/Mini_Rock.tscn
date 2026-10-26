@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://cnw5fk2kgwwh7"]
+
+[ext_resource type="PackedScene" uid="uid://d0aurdcydf4w7" path="res://Assets/Scenes/Super Classe/Super_Projectile_MegaMan.tscn" id="1_4m2vd"]
+[ext_resource type="Script" uid="uid://b31bbyvbxiklt" path="res://Assets/Scripts/Characters_Objects/Megaman/Projectile/Mini_Rock.gd" id="2_swdr3"]
+[ext_resource type="Texture2D" uid="uid://cjiw6441w8udm" path="res://Assets/Sprites/Characters_Objects/Megaman/MiniRocks.png" id="3_bqgf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ic3t"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_yf2bx"]
+resource_name = "Briques Bleue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(17, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_3yrsq"]
+resource_name = "Briques Verte"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_q0qw1"]
+resource_name = "Metal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(51, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_fj7g2"]
+resource_name = "Ordinateur"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(68, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_7cwar"]
+resource_name = "Poussiere"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(34, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_bh6og"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ic3t"]
+_data = {
+&"Briques Bleue": SubResource("Animation_yf2bx"),
+&"Briques Verte": SubResource("Animation_3yrsq"),
+&"Metal": SubResource("Animation_q0qw1"),
+&"Ordinateur": SubResource("Animation_fj7g2"),
+&"Poussiere": SubResource("Animation_7cwar"),
+&"RESET": SubResource("Animation_bh6og")
+}
+
+[node name="Super Arm" unique_id=1395822103 instance=ExtResource("1_4m2vd")]
+script = ExtResource("2_swdr3")
+
+[node name="Area2D" parent="." index="0" unique_id=1637114378]
+visible = false
+
+[node name="CollisionShape2D" parent="Area2D" index="0" unique_id=1017653585]
+shape = SubResource("RectangleShape2D_5ic3t")
+
+[node name="Sprite2D" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="0" unique_id=541168850]
+texture = ExtResource("3_bqgf6")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="AnimationPlayer" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="1" unique_id=1084327605]
+libraries/ = SubResource("AnimationLibrary_5ic3t")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2" unique_id=763189694]
+visible = false
+rect = Rect2(-8, -8, 16, 16)
+
+[node name="CollisionShape2Duplicate" parent="." index="3" unique_id=721186326]
+visible = false
+shape = SubResource("RectangleShape2D_5ic3t")

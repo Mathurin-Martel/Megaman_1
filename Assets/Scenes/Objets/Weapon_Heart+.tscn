@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://c48ietv2q8o3l"]
+
+[ext_resource type="PackedScene" uid="uid://d1ia5l0skb1f3" path="res://Assets/Scenes/Super Classe/Super_Loot.tscn" id="1_13lin"]
+[ext_resource type="Script" uid="uid://dqv1noywep3cn" path="res://Assets/Scripts/Characters_Objects/Objets/Weapon_Heart+.gd" id="2_ap833"]
+[ext_resource type="Shader" uid="uid://bvpwwnspq2u3l" path="res://Assets/Shaders/weapon_heart.gdshader" id="2_g7ipm"]
+[ext_resource type="Texture2D" uid="uid://bfjssfwuhsgo4" path="res://Assets/Sprites/Characters_Objects/Objets/Weapon Hearts+.png" id="3_n6lv5"]
+[ext_resource type="Texture2D" uid="uid://cndx5xmlvuuu5" path="res://Assets/Sprites/Characters_Objects/Objets/45633.png" id="4_g7ipm"]
+[ext_resource type="Script" uid="uid://ki3f3qej1wa6" path="res://Assets/Scripts/Characters_Objects/Objets/Weapon_Heart_Shader.gd" id="4_n6lv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap833"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_q4qan"]
+resource_name = "Magnet Beam"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(18, 3, 16, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisibleOnScreenNotifier2D:rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(-8, -6, 16, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/Sprite2D:material:shader_parameter/using_shader")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ap833"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(1, 1, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisibleOnScreenNotifier2D:rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(-8, -8, 16, 16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/Sprite2D:material:shader_parameter/using_shader")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_apt3s"]
+resource_name = "Weapon Heart"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(1, 1, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisibleOnScreenNotifier2D:rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(-8, -8, 16, 16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/Sprite2D:material:shader_parameter/using_shader")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Animation/Sprite2D:material:shader_parameter/seconde_phase")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q4qan"]
+_data = {
+&"Magnet Beam": SubResource("Animation_q4qan"),
+&"RESET": SubResource("Animation_ap833"),
+&"Weapon Heart": SubResource("Animation_apt3s")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aaqn2"]
+shader = ExtResource("2_g7ipm")
+shader_parameter/using_shader = true
+shader_parameter/seconde_phase = false
+shader_parameter/shader_color_1_1 = Vector4(0, 0, 0, 0)
+shader_parameter/shader_color_1_2 = Vector4(0, 0, 0, 0)
+shader_parameter/shader_color_1_3 = Vector4(0, 0, 0, 0)
+shader_parameter/shader_color_2_1 = Vector4(0, 0, 0, 0)
+shader_parameter/shader_color_2_2 = Vector4(0, 0, 0, 0)
+shader_parameter/shader_color_2_3 = Vector4(0, 0, 0, 0)
+
+[node name="Weapon Heart+" unique_id=1055902353 instance=ExtResource("1_13lin")]
+script = ExtResource("2_ap833")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=448455413]
+shape = SubResource("RectangleShape2D_ap833")
+
+[node name="LootAnimations" parent="Animation" parent_id_path=PackedInt32Array(684545470) index="0" unique_id=1598269971]
+libraries/ = SubResource("AnimationLibrary_q4qan")
+
+[node name="Sprite2D" parent="Animation" parent_id_path=PackedInt32Array(684545470) index="1" unique_id=1233492026]
+material = SubResource("ShaderMaterial_aaqn2")
+texture = ExtResource("3_n6lv5")
+region_enabled = true
+region_rect = Rect2(1, 1, 16, 16)
+script = ExtResource("4_n6lv5")
+
+[node name="CollisionShape2Duplicate" parent="Area2D" parent_id_path=PackedInt32Array(995221592) index="0" unique_id=1324784399]
+shape = SubResource("RectangleShape2D_ap833")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3" unique_id=37691441]
+rect = Rect2(-8, -8, 16, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=796599948]
+visible = false
+position = Vector2(159, 78)
+texture = ExtResource("4_g7ipm")

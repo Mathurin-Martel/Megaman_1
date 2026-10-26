@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bbb844uckd1xu"]
+
+[ext_resource type="PackedScene" uid="uid://d1ia5l0skb1f3" path="res://Assets/Scenes/Super Classe/Super_Loot.tscn" id="1_vjo76"]
+[ext_resource type="Script" uid="uid://bkqw7hf1iwygf" path="res://Assets/Scripts/Characters_Objects/Objets/One_UP.gd" id="2_ri15l"]
+[ext_resource type="Texture2D" uid="uid://5h8hhwiad6yi" path="res://Assets/Sprites/Characters_Objects/Objets/1-UP.png" id="3_yniao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri15l"]
+resource_local_to_scene = true
+size = Vector2(16, 15)
+
+[sub_resource type="Animation" id="Animation_ri15l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yniao"]
+_data = {
+&"RESET": SubResource("Animation_ri15l")
+}
+
+[node name="One UP" unique_id=1055902353 instance=ExtResource("1_vjo76")]
+script = ExtResource("2_ri15l")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=448455413]
+shape = SubResource("RectangleShape2D_ri15l")
+
+[node name="LootAnimations" parent="Animation" parent_id_path=PackedInt32Array(684545470) index="0" unique_id=1598269971]
+libraries/ = SubResource("AnimationLibrary_yniao")
+
+[node name="Sprite2D" parent="Animation" parent_id_path=PackedInt32Array(684545470) index="1" unique_id=1233492026]
+texture = ExtResource("3_yniao")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 15)
+
+[node name="CollisionShape2Duplicate" parent="Area2D" parent_id_path=PackedInt32Array(995221592) index="0" unique_id=1324784399]
+shape = SubResource("RectangleShape2D_ri15l")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3" unique_id=37691441]
+rect = Rect2(-8, -7.5, 16, 15)

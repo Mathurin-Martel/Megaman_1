@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://6golcbg8g4hb"]
+
+[ext_resource type="PackedScene" uid="uid://d0aurdcydf4w7" path="res://Assets/Scenes/Super Classe/Super_Projectile_MegaMan.tscn" id="1_ogpef"]
+[ext_resource type="Script" uid="uid://hja0g1wp4d74" path="res://Assets/Scripts/Characters_Objects/Megaman/Projectile/Mega_Buster.gd" id="2_rae32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpef"]
+resource_local_to_scene = true
+size = Vector2(8, 6)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u6yvn"]
+
+[node name="Projectile Mega Buster" unique_id=1395822103 instance=ExtResource("1_ogpef")]
+script = ExtResource("2_rae32")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1637114378) index="0" unique_id=1017653585]
+shape = SubResource("RectangleShape2D_ogpef")
+
+[node name="Sprite2D" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="0" unique_id=541168850]
+region_rect = Rect2(1, 1, 8, 6)
+
+[node name="AnimationPlayer" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="1" unique_id=1084327605]
+libraries/ = SubResource("AnimationLibrary_u6yvn")
+
+[node name="CollisionShape2Duplicate" parent="." index="3" unique_id=721186326]
+shape = SubResource("RectangleShape2D_ogpef")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

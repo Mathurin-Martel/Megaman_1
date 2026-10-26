@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://dqowwe28vn0p"]
+
+[ext_resource type="PackedScene" uid="uid://d0aurdcydf4w7" path="res://Assets/Scenes/Super Classe/Super_Projectile_MegaMan.tscn" id="1_btns4"]
+[ext_resource type="Script" uid="uid://rhgwn8outqlm" path="res://Assets/Scripts/Characters_Objects/Megaman/Projectile/Rolling_Cutter.gd" id="2_5aku3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5aku3"]
+resource_local_to_scene = true
+size = Vector2(10, 14)
+
+[sub_resource type="Animation" id="Animation_btns4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(10, 1, 10, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area2D/CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../VisibleOnScreenNotifier2D:rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(-5, -7, 10, 14)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5707964]
+}
+
+[sub_resource type="Animation" id="Animation_5aku3"]
+resource_name = "Rolling_Cutter"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(10, 1, 10, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area2D/CollisionShape2D:shape:size")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(10, 14), Vector2(14, 10), Vector2(10, 14), Vector2(14, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../VisibleOnScreenNotifier2D:rect")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(-5, -7, 10, 14), Rect2(-7, -5, 14, 10), Rect2(-5, -7, 10, 14), Rect2(-7, -5, 14, 10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 4.71238898038469, 3.1415927, 1.5707964]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hl0m"]
+_data = {
+&"RESET": SubResource("Animation_btns4"),
+&"Rolling_Cutter": SubResource("Animation_5aku3")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_4hl0m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 24, 0, -24, 0, -48, -24, 0, 0, 0, 0, -96, 0, -24, 0, 0, 0, -48, 24)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_5aku3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -24, 0, 24, 0, 48, -24, 0, 0, 0, 0, 96, 0, 24, 0, 0, 0, 48, 24)
+}
+point_count = 4
+
+[node name="Rolling Cutter" unique_id=1395822103 instance=ExtResource("1_btns4")]
+script = ExtResource("2_5aku3")
+
+[node name="Area2D" parent="." index="0" unique_id=1637114378]
+collision_mask = 3
+
+[node name="CollisionShape2D" parent="Area2D" index="0" unique_id=1017653585]
+shape = SubResource("RectangleShape2D_5aku3")
+
+[node name="Sprite2D" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="0" unique_id=541168850]
+rotation = 1.5707964
+region_rect = Rect2(10, 1, 10, 14)
+
+[node name="AnimationPlayer" parent="Animation" parent_id_path=PackedInt32Array(1639694759) index="1" unique_id=1084327605]
+libraries/ = SubResource("AnimationLibrary_4hl0m")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2" unique_id=763189694]
+rect = Rect2(-5, -7, 10, 14)
+
+[node name="CollisionShape2Duplicate" parent="." index="3" unique_id=721186326]
+visible = false
+shape = SubResource("RectangleShape2D_5aku3")
+
+[node name="PathG" type="Path2D" parent="." index="4" unique_id=249044231]
+curve = SubResource("Curve2D_4hl0m")
+
+[node name="PathD" type="Path2D" parent="." index="5" unique_id=1653922835]
+curve = SubResource("Curve2D_5aku3")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d12savwoi2qum"]
+
+[ext_resource type="Script" uid="uid://dsc7cu6fk4y6" path="res://Assets/Scripts/Characters_Objects/Objets/doors.gd" id="1_ikpqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8wqk"]
+resource_local_to_scene = true
+size = Vector2(48, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymiqe"]
+resource_local_to_scene = true
+size = Vector2(48, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl7ng"]
+resource_local_to_scene = true
+size = Vector2(176, 16)
+
+[node name="Doors" type="StaticBody2D" unique_id=324964489]
+script = ExtResource("1_ikpqy")
+supplement_area = 8.0
+taille_init = 3
+nombre_de_portes = 4
+
+[node name="Visuals" type="Node2D" parent="." unique_id=2111215734]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376804965]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_b8wqk")
+debug_color = Color(0.9978985, 0, 0.16594073, 0.41960785)
+
+[node name="Ouverture" type="Area2D" parent="." unique_id=2114717306]
+position = Vector2(24, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ouverture" unique_id=151475532]
+shape = SubResource("RectangleShape2D_ymiqe")
+debug_color = Color(0.29371104, 0.62962455, 1.92523e-07, 0.41960785)
+
+[node name="Fermeture" type="Area2D" parent="." unique_id=500133481]
+visible = false
+position = Vector2(88, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fermeture" unique_id=656869620]
+shape = SubResource("RectangleShape2D_nl7ng")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1293953392]
+one_shot = true
+
+[connection signal="body_entered" from="Ouverture" to="." method="_on_ouverture_body_entered"]
+[connection signal="body_exited" from="Ouverture" to="." method="_on_ouverture_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

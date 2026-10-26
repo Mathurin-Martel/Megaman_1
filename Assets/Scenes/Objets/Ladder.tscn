@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://d6kyhgqwuj60"]
+
+[ext_resource type="Script" uid="uid://cb6y16xvomeqq" path="res://Assets/Scripts/Characters_Objects/Objets/ladder.gd" id="1_vgliw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl7ng"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymiqe"]
+resource_local_to_scene = true
+size = Vector2(5, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p5ep"]
+size = Vector2(16, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olwun"]
+size = Vector2(5, 10)
+
+[node name="Ladder" type="StaticBody2D" unique_id=1481085773]
+collision_layer = 512
+script = ExtResource("1_vgliw")
+taille = 2
+
+[node name="Visuals" type="Node2D" parent="." unique_id=421995765]
+position = Vector2(0, 8)
+
+[node name="Plateforme Ladder End" type="CollisionShape2D" parent="." unique_id=1408061958]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_nl7ng")
+one_way_collision_margin = 128.0
+
+[node name="Ladder" type="Area2D" parent="." unique_id=1462038654]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" unique_id=1575341307]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_ymiqe")
+debug_color = Color(0.99999994, 0.017640017, 0.012914058, 0.41960785)
+
+[node name="End Platform" type="Area2D" parent="." unique_id=997750790]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End Platform" unique_id=1974315625]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3p5ep")
+
+[node name="High Entrance" type="Area2D" parent="." unique_id=2059640236]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="High Entrance" unique_id=405417881]
+shape = SubResource("RectangleShape2D_olwun")
+debug_color = Color(0.76691675, 0.4650733, 0, 0.41960785)
+
+[node name="Low Entrance" type="Area2D" parent="." unique_id=918189510]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Low Entrance" unique_id=1456520031]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_olwun")
+debug_color = Color(1.7808378e-06, 0.6399674, 0.51395166, 0.41960785)
+
+[connection signal="body_entered" from="Ladder" to="." method="_on_ladder_entered"]
+[connection signal="body_exited" from="Ladder" to="." method="_on_ladder_exited"]
+[connection signal="body_entered" from="End Platform" to="." method="_on_end_platform_entered"]
+[connection signal="body_exited" from="End Platform" to="." method="_on_end_platform_exited"]
+[connection signal="body_entered" from="High Entrance" to="." method="_on_high_entrance_entered"]
+[connection signal="body_exited" from="High Entrance" to="." method="_on_high_entrance_exited"]
+[connection signal="body_entered" from="Low Entrance" to="." method="_on_low_entrance_entered"]
+[connection signal="body_exited" from="Low Entrance" to="." method="_on_low_entrance_exited"]

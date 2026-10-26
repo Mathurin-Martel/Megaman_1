@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cdeck2f5wneeq"]
+
+[ext_resource type="Script" uid="uid://is5r732oshlx" path="res://Assets/Scripts/Characters_Objects/Objets/pic.gd" id="1_a0lxv"]
+[ext_resource type="Texture2D" uid="uid://bm52xjawc1rqr" path="res://Assets/Sprites/Characters_Objects/Objets/Pic.png" id="2_a7sdc"]
+
+[node name="Pic" type="Node2D" unique_id=1397734720]
+script = ExtResource("1_a0lxv")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=981596904]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1052654855]
+texture = ExtResource("2_a7sdc")
+
+[node name="Hitbox Pic" type="Area2D" parent="." unique_id=2023863413]
+
+[connection signal="body_entered" from="Hitbox Pic" to="." method="_on_pic_entered"]

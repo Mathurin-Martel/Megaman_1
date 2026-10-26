@@ -1,0 +1,334 @@
+[gd_scene format=3 uid="uid://u3rao2du1ims"]
+
+[ext_resource type="Script" uid="uid://cmdsf773g40e3" path="res://Assets/Scripts/Gameplay/hud.gd" id="1_k5de2"]
+[ext_resource type="Shader" uid="uid://ddnm6d40o7ud5" path="res://Assets/Shaders/HUD.gdshader" id="2_jiky0"]
+[ext_resource type="Texture2D" uid="uid://n2q86kg5q1e" path="res://Assets/Sprites/HUD/game_bars_megaman.png" id="2_yci7t"]
+[ext_resource type="Texture2D" uid="uid://dlxuvsomc53a6" path="res://Assets/Sprites/HUD/horizontal_bar_megaman.png" id="3_bkvlq"]
+[ext_resource type="Texture2D" uid="uid://vgaiorto54oq" path="res://Assets/Sprites/HUD/menu_megaman.png" id="3_uebvv"]
+[ext_resource type="Script" uid="uid://np12agbu06cj" path="res://Assets/Scripts/Gameplay/Menu_Shader.gd" id="5_pbbhy"]
+[ext_resource type="Texture2D" uid="uid://dv1f2cixsstb1" path="res://Assets/Sprites/HUD/under_energy_bar_megaman.png" id="5_qfeae"]
+[ext_resource type="Texture2D" uid="uid://cryh6uf8q405q" path="res://Assets/Sprites/HUD/energy_progress_bar_megaman.png" id="6_fewv2"]
+[ext_resource type="Texture2D" uid="uid://5h8hhwiad6yi" path="res://Assets/Sprites/Characters_Objects/Objets/1-UP.png" id="7_xvw4q"]
+[ext_resource type="FontFile" uid="uid://brm4rh44b06jb" path="res://Assets/MegaFont/MegaFont.png" id="8_fewv2"]
+[ext_resource type="Shader" uid="uid://ckhhlri7eu6lx" path="res://Assets/Shaders/WeaponLabel_Shader.gdshader" id="10_bkvlq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymiqe"]
+atlas = ExtResource("3_bkvlq")
+region = Rect2(0, 0, 6, 56)
+margin = Rect2(0, 0, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nl7ng"]
+shader = ExtResource("2_jiky0")
+shader_parameter/using_shader = true
+shader_parameter/color_1 = Vector4(0, 0, 0, 0)
+shader_parameter/color_2 = Vector4(0, 0, 0, 0)
+shader_parameter/color_3 = Vector4(0, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl7ng"]
+atlas = ExtResource("6_fewv2")
+region = Rect2(0, 0, 55, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bkvlq"]
+shader = ExtResource("10_bkvlq")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2h3qf"]
+shader = ExtResource("10_bkvlq")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fclas"]
+shader = ExtResource("10_bkvlq")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f80cm"]
+shader = ExtResource("10_bkvlq")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpvai"]
+shader = ExtResource("10_bkvlq")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_id4oi"]
+shader = ExtResource("10_bkvlq")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4a6u"]
+shader = ExtResource("10_bkvlq")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e740d"]
+shader = ExtResource("10_bkvlq")
+shader_parameter/using_shader = false
+
+[node name="HUD" type="Control" unique_id=466511455 groups=["HUD"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k5de2")
+
+[node name="Game" type="Control" parent="." unique_id=1163332747]
+anchors_preset = 0
+scale = Vector2(3, 3)
+
+[node name="HealthProgressBar" type="TextureProgressBar" parent="Game" unique_id=699326379]
+texture_repeat = 2
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 56.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+fill_mode = 3
+texture_under = ExtResource("2_yci7t")
+texture_progress = SubResource("AtlasTexture_ymiqe")
+texture_progress_offset = Vector2(1, 0)
+
+[node name="EnergyProgressBar" type="TextureProgressBar" parent="Game" unique_id=83330328]
+texture_repeat = 2
+layout_mode = 0
+offset_left = 9.0
+offset_right = 17.0
+offset_bottom = 56.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+fill_mode = 3
+texture_under = ExtResource("2_yci7t")
+texture_progress = SubResource("AtlasTexture_ymiqe")
+texture_progress_offset = Vector2(1, 0)
+
+[node name="Menu" type="Control" parent="." unique_id=2087725738]
+process_mode = 3
+anchors_preset = 0
+offset_left = 736.0
+offset_top = 16.0
+offset_right = 736.0
+offset_bottom = 16.0
+scale = Vector2(3, 3)
+
+[node name="Background" type="TextureRect" parent="Menu" unique_id=1832573891]
+material = SubResource("ShaderMaterial_nl7ng")
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 160.0
+texture = ExtResource("3_uebvv")
+script = ExtResource("5_pbbhy")
+
+[node name="EnergyBars" type="Control" parent="Menu" unique_id=1801370085]
+anchors_preset = 0
+offset_left = 27.0
+offset_top = 20.0
+offset_right = 67.0
+offset_bottom = 60.0
+
+[node name="HyperBombEnergyBar" type="TextureProgressBar" parent="Menu/EnergyBars" unique_id=545278755]
+texture_repeat = 2
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 8.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+texture_under = ExtResource("5_qfeae")
+texture_progress = SubResource("AtlasTexture_nl7ng")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="HyperBombLabel" type="RichTextLabel" parent="Menu/EnergyBars/HyperBombEnergyBar" unique_id=1263335866]
+material = SubResource("ShaderMaterial_bkvlq")
+layout_mode = 1
+anchors_preset = -1
+offset_left = -12.0
+offset_right = -5.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "B"
+scroll_active = false
+
+[node name="ThunderBeamEnergyBar" type="TextureProgressBar" parent="Menu/EnergyBars" unique_id=1471699833]
+texture_repeat = 2
+layout_mode = 0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 24.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+texture_under = ExtResource("5_qfeae")
+texture_progress = SubResource("AtlasTexture_nl7ng")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="ThunderBeamLabel" type="RichTextLabel" parent="Menu/EnergyBars/ThunderBeamEnergyBar" unique_id=2147104822]
+material = SubResource("ShaderMaterial_2h3qf")
+layout_mode = 1
+anchors_preset = -1
+offset_left = -12.0
+offset_right = -3.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "E "
+scroll_active = false
+
+[node name="SuperArmEnergyBar" type="TextureProgressBar" parent="Menu/EnergyBars" unique_id=1359346376]
+texture_repeat = 2
+layout_mode = 0
+offset_top = 32.0
+offset_right = 56.0
+offset_bottom = 40.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+texture_under = ExtResource("5_qfeae")
+texture_progress = SubResource("AtlasTexture_nl7ng")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="SuperArmLabel" type="RichTextLabel" parent="Menu/EnergyBars/SuperArmEnergyBar" unique_id=2035794934]
+material = SubResource("ShaderMaterial_fclas")
+layout_mode = 1
+anchors_preset = -1
+offset_left = -12.0
+offset_right = -3.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "G "
+scroll_active = false
+
+[node name="IceSlasherEnergyBar" type="TextureProgressBar" parent="Menu/EnergyBars" unique_id=16320505]
+texture_repeat = 2
+layout_mode = 0
+offset_top = 48.0
+offset_right = 56.0
+offset_bottom = 56.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+texture_under = ExtResource("5_qfeae")
+texture_progress = SubResource("AtlasTexture_nl7ng")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="IceSlasherLabel" type="RichTextLabel" parent="Menu/EnergyBars/IceSlasherEnergyBar" unique_id=1531816511]
+material = SubResource("ShaderMaterial_f80cm")
+layout_mode = 1
+anchors_preset = -1
+offset_left = -12.0
+offset_right = -3.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "I "
+scroll_active = false
+
+[node name="RollingCutterEnergyBar" type="TextureProgressBar" parent="Menu/EnergyBars" unique_id=2111261864]
+texture_repeat = 2
+layout_mode = 0
+offset_top = 64.0
+offset_right = 56.0
+offset_bottom = 72.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+texture_under = ExtResource("5_qfeae")
+texture_progress = SubResource("AtlasTexture_nl7ng")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="RollingCutterLabel" type="RichTextLabel" parent="Menu/EnergyBars/RollingCutterEnergyBar" unique_id=1811877578]
+material = SubResource("ShaderMaterial_vpvai")
+layout_mode = 1
+anchors_preset = -1
+offset_left = -12.0
+offset_right = -3.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "C "
+scroll_active = false
+
+[node name="FireStormEnergyBar" type="TextureProgressBar" parent="Menu/EnergyBars" unique_id=1194555805]
+texture_repeat = 2
+layout_mode = 0
+offset_top = 80.0
+offset_right = 56.0
+offset_bottom = 88.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+texture_under = ExtResource("5_qfeae")
+texture_progress = SubResource("AtlasTexture_nl7ng")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="FireStormLabel" type="RichTextLabel" parent="Menu/EnergyBars/FireStormEnergyBar" unique_id=1728320232]
+material = SubResource("ShaderMaterial_id4oi")
+layout_mode = 1
+anchors_preset = -1
+offset_left = -12.0
+offset_right = -3.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "F "
+scroll_active = false
+
+[node name="MagnetBeamEnergyBar" type="TextureProgressBar" parent="Menu/EnergyBars" unique_id=1570055369]
+texture_repeat = 2
+layout_mode = 0
+offset_top = 96.0
+offset_right = 56.0
+offset_bottom = 104.0
+max_value = 56.0
+step = 2.0
+value = 56.0
+texture_under = ExtResource("5_qfeae")
+texture_progress = SubResource("AtlasTexture_nl7ng")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="MagnetBeamLabel" type="RichTextLabel" parent="Menu/EnergyBars/MagnetBeamEnergyBar" unique_id=1954696430]
+material = SubResource("ShaderMaterial_b4a6u")
+layout_mode = 1
+anchors_preset = -1
+offset_left = -12.0
+offset_right = -3.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "M "
+scroll_active = false
+
+[node name="MegaBusterLabel" type="RichTextLabel" parent="Menu" unique_id=848652246]
+material = SubResource("ShaderMaterial_e740d")
+layout_mode = 1
+anchors_preset = -1
+offset_left = 15.0
+offset_top = 132.0
+offset_right = 24.0
+offset_bottom = 140.0
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "P "
+scroll_active = false
+
+[node name="1-UPCount" type="Control" parent="Menu" unique_id=110502278]
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 130.0
+offset_right = 80.0
+offset_bottom = 170.0
+
+[node name="1-UPTextureRect" type="TextureRect" parent="Menu/1-UPCount" unique_id=2069291547]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 15.0
+texture = ExtResource("7_xvw4q")
+expand_mode = 1
+
+[node name="NombresDeVies" type="RichTextLabel" parent="Menu/1-UPCount" unique_id=1362563912]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -1.5
+offset_right = 222.5
+offset_bottom = 86.5
+theme_override_fonts/normal_font = ExtResource("8_fewv2")
+theme_override_font_sizes/normal_font_size = 8
+text = "3"

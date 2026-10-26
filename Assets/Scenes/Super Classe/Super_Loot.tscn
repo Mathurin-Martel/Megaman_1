@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d1ia5l0skb1f3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl7ng"]
+resource_local_to_scene = true
+
+[node name="Super Loot" type="CharacterBody2D" unique_id=1055902353]
+collision_layer = 8
+collision_mask = 768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=448455413]
+shape = SubResource("RectangleShape2D_nl7ng")
+
+[node name="Animation" type="Node2D" parent="." unique_id=684545470]
+
+[node name="LootAnimations" type="AnimationPlayer" parent="Animation" unique_id=1598269971]
+root_node = NodePath("../..")
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation" unique_id=1233492026]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=995221592]
+collision_layer = 8
+
+[node name="CollisionShape2Duplicate" type="CollisionShape2D" parent="Area2D" unique_id=1324784399]
+shape = SubResource("RectangleShape2D_nl7ng")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=37691441]

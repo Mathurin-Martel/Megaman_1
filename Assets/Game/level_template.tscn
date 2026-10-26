@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dkwrxt6lg5qaa"]
+
+[ext_resource type="Script" uid="uid://ci57kmea0bwj6" path="res://Assets/Scripts/Gameplay/Checkpoints.gd" id="2_5p4mk"]
+[ext_resource type="Script" uid="uid://bmyxc48fhqujq" path="res://Assets/Game/death_zones.gd" id="2_hdyrw"]
+
+[sub_resource type="TileSet" id="TileSet_ivu4x"]
+
+[node name="Level Template" type="Node2D" unique_id=1969986190]
+
+[node name="Décor" type="TileMap" parent="." unique_id=1727608770]
+tile_set = SubResource("TileSet_ivu4x")
+format = 2
+
+[node name="Checkpoints" type="Node2D" parent="." unique_id=1871424676]
+script = ExtResource("2_5p4mk")
+
+[node name="CheckpointStart" type="Marker2D" parent="Checkpoints" unique_id=1148531212 groups=["Mega Man Start"]]
+
+[node name="Boss Start Position" type="Marker2D" parent="." unique_id=1936026839 groups=["Boss Start Position"]]
+
+[node name="Ennemies" type="Node2D" parent="." unique_id=1042444980]
+
+[node name="Items" type="Node2D" parent="." unique_id=1012272859]
+
+[node name="Rocks" type="Node2D" parent="." unique_id=712107113]
+
+[node name="Ladders" type="Node2D" parent="." unique_id=880137990]
+
+[node name="Doors" type="Node2D" parent="." unique_id=1319320021]
+
+[node name="Traps" type="Node2D" parent="." unique_id=219038884]
+
+[node name="Frontieres" type="Node2D" parent="." unique_id=324377918]
+
+[node name="Camera Markers" type="Node2D" parent="." unique_id=1533870807]
+
+[node name="Death Zones" type="Area2D" parent="." unique_id=440455101]
+script = ExtResource("2_hdyrw")
+
+[node name="Level Music" type="AudioStreamPlayer" parent="." unique_id=935682110]
+autoplay = true
+
+[connection signal="body_entered" from="Death Zones" to="Death Zones" method="_on_body_entered"]

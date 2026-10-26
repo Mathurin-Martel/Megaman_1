@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d0aurdcydf4w7"]
+
+[ext_resource type="Texture2D" uid="uid://e676hxi0hl6f" path="res://Assets/Sprites/Characters_Objects/Megaman/projectiles_megaman.png" id="2_nm35d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhx83"]
+resource_local_to_scene = true
+size = Vector2(15, 15)
+
+[node name="Super Projectile MegaMan" type="CharacterBody2D" unique_id=1395822103]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1637114378]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1017653585]
+shape = SubResource("RectangleShape2D_uhx83")
+
+[node name="Animation" type="Node2D" parent="." unique_id=1639694759]
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation" unique_id=541168850]
+texture = ExtResource("2_nm35d")
+region_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation" unique_id=1084327605]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=763189694]
+rect = Rect2(-7.5, -7.5, 15, 15)
+
+[node name="CollisionShape2Duplicate" type="CollisionShape2D" parent="." unique_id=721186326]
+shape = SubResource("RectangleShape2D_uhx83")
+disabled = true
