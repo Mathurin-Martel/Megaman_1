@@ -2,13 +2,19 @@
 extends CharacterBody2D
 class_name SuperMainCharacter
 
-var max_health : int = 28
+var max_health : SavedVariable = SavedVariable.new(28)
+var current_health_for_save : SavedVariable = SavedVariable.new(28)
+#Je suis obligé de faire ça. D'après mes recherches godot ne fait pas de pointeur 
+#sur les types pimitifs. Du coup je dois en faire un type custom nommé SavedVariable.
+#Problème : Si je fais ca pour current_health alors 
+#value est de type RefCounted et ca casse tout.
 var current_health : int :
 	set(value):
 		current_health = value
+		current_health_for_save.update(current_health)
 		EventBus.emit_signal("set_health_bar", current_health)
 var invincible : bool = false
-var energy_max_level : int = 28
+var max_energy : SavedVariable = SavedVariable.new(28)
 var energy_levels : Dictionary
 var liste_armes : Array
 var liste_armes_obtenus : Dictionary
@@ -26,13 +32,34 @@ enum Sound_Names{
 	SHOOT
 }
 
+enum SAVED_VARS{
+	MAX_HEALTH, 
+	CURRENT_HEALTH,
+	MAX_ENERGY,
+	ENERGY_LEVELS,
+	LISTE_ARMES_OBTENUS
+}
+
+#Ici ce sont les variables qui seront sauvegardés
+var saved_vars={
+	SAVED_VARS.MAX_HEALTH : max_health,
+	SAVED_VARS.CURRENT_HEALTH : current_health_for_save,
+	SAVED_VARS.MAX_ENERGY : max_energy,
+	SAVED_VARS.ENERGY_LEVELS : energy_levels,
+	SAVED_VARS.LISTE_ARMES_OBTENUS : liste_armes_obtenus
+}
+
 func _ready() -> void:
-	current_health=max_health
+	current_health=max_health.get_valeur()
+	#EventBus.send_save_data.connect(_send_save_data)
 	EventBus.change_weapon.connect(_change_weapon)
 	EventBus.emit_signal("PlayerIsHere", self)
 
+func _send_save_data():
+	pass
+
 func change_health(change_to_health : int):
-	current_health = min(current_health + change_to_health, max_health)
+	current_health = min(current_health + change_to_health, max_health.get_valeur())
 	if current_health<=0:
 			die()
 
@@ -80,7 +107,7 @@ func avance_curseur_liste_armes():
 func change_energy(change_to_energy : int):
 	#Les variables sont là pour plus de visibilité
 	var energy_level = energy_levels[liste_armes[curseur_liste_armes]]
-	energy_levels[liste_armes[curseur_liste_armes]] = max(min(energy_level + change_to_energy, energy_max_level),0)
+	energy_levels[liste_armes[curseur_liste_armes]] = max(min(energy_level + change_to_energy, max_energy.get_valeur()),0)
 	energy_level = energy_levels[liste_armes[curseur_liste_armes]] #Je remet a jour
 	#Changer par une
 	#print("Current Energy:"+str(energy_level))
@@ -105,3 +132,7 @@ func get_collision_layer_number(body: CollisionObject2D)->int:
 		if body.get_collision_layer_value(i):
 			return i
 	return -1 #Donc qu'il n'a pas trouvée
+
+func envoyer_donnees_sauvegarde():
+	pass
+	#Trouver un moyen de lister les variables devant être envoyés

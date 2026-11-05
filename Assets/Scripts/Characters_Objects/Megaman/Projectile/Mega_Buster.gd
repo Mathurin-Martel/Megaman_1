@@ -2,7 +2,6 @@ extends SuperProjectile
 
 func _ready() -> void:
 	super._ready()
-	print("Test visible notifier = "+str(visible_notifier))
 	weapon_name="Mega Buster"
 
 func _process(_delta: float) -> void:

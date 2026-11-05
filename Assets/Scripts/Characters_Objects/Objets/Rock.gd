@@ -35,10 +35,8 @@ var liste_animations = {
 }
 @export var level_name : NomsCommuns.Level_Names = NomsCommuns.Level_Names.MOUNTAIN_MINES :
 	set(value):
-		print("level_name set_value")
 		level_name = value
 		if is_inside_tree():
-			print("Test is_inside_tree")
 			sprite2D.set_colors(level_name)
 			set_rock_type()
 @export var horizontal_speed : int = 300
@@ -68,10 +66,10 @@ func _process(delta: float) -> void:
 				liste_projectiles[x].set_level_name(level_name)
 				GameManager.get_current_level().add_child(liste_projectiles[x])
 			moving_body.queue_free()
-			print("Crée petit projectiles")
+			#print("Crée petit projectiles")
 		else :
-			print("moving_body.get_gravity() = "+str(moving_body.get_gravity()))
 			moving_body.velocity.y = moving_body.velocity.y + moving_body.get_gravity().y * delta
+			#print("Test process moving body.velocity="+str(moving_body.velocity))
 			moving_body.move_and_slide()
 
 func set_level_name(current_level_name : NomsCommuns.Level_Names):
@@ -79,7 +77,7 @@ func set_level_name(current_level_name : NomsCommuns.Level_Names):
 
 func set_rock_type():
 	if level_name in liste_animations.keys() :
-		print("Test set_rock_type : level_name = "+str(NomsCommuns.level_name_to_string(level_name)))
+		#print("Test set_rock_type : level_name = "+str(NomsCommuns.level_name_to_string(level_name)))
 		animation_player.play(liste_animations[level_name])
 	else:
 		animation_player.play(liste_animations[NomsCommuns.Level_Names.ABANDONED_SAWMILL])
@@ -102,6 +100,7 @@ func _launch_rocks(direction : int):
 		GameManager.get_current_level().add_child(moving_body)
 		self.reparent(moving_body)
 		moving_body.velocity = Vector2(horizontal_speed * direction_rock,-vertical_speed)
+		#print("Test initial moving body.velocity="+str(moving_body.velocity))
 		moving_body.move_and_slide()
 
 func _set_rock_shining(node_id : int):

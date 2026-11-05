@@ -10,6 +10,7 @@ enum Scenes_Names {
 var Scenes={}
 
 #Path des niveaux
+var level_select_screen = "res://Assets/Game/Levels/Level_Select_Screen.tscn"
 var Levels = {
 	NomsCommuns.Level_Names.ABANDONED_SAWMILL : "res://Assets/Game/Levels/Bomb Man/bomb_man_level.tscn",
 	NomsCommuns.Level_Names.ORB_CITY : "res://Assets/Game/Levels/Bomb Man/bomb_man_level.tscn",
@@ -28,25 +29,32 @@ var player : SuperMainCharacter = null
 func _ready() -> void:
 	hud = get_tree().get_first_node_in_group("HUD")
 	level_container = get_tree().get_first_node_in_group("Level Container")
-	load_level(starting_level)
-	
-func next_area():
-	#Mettre le changement de la variable current_level
-	load_level(current_level_name)
+	load_level_select_screen()
+	EventBus.load_level.connect(_load_playable_level)
 
-func load_level(level_name):
-	var level=load(Levels[level_name]) as PackedScene
-	if !level:
-		print("Niveau pas chargée.")
+func load_level_select_screen() :
+	load_level(level_select_screen)
+	EventBus.emit_signal("set_level_select_screen_camera", current_level)
+
+func load_level(level_to_load : String):
+	var level_blueprint=load(level_to_load) as PackedScene
+	if !level_blueprint:
 		return
-	# Removing the previous scene
 	for child in level_container.get_children():
 		child.queue_free()
 		await child.tree_exited
-	# Setting up the new scene
-	current_level = level.instantiate()
+		#Note sur comment await fonctionne.
+		#Quand j'appelle await il met en pause cette fonction
+		#Cependant la fonction qui l'a appelé elle continuera son éxécution.
+		#C'est donc une sorte de return un peu bizarre
+	current_level = level_blueprint.instantiate()
 	level_container.add_child(current_level)
+
+func _load_playable_level(level_to_load : NomsCommuns.Level_Names):
+	await load_level(Levels[level_to_load])
+	#Il faut attendre qu'elle se finisse sinon ca crée des problèmes avec create_player_node()
 	create_player_node()
+	EventBus.emit_signal("set_camera")
 
 func create_player_node():
 	var player_scene = load("res://Assets/Scenes/Megaman/megaman.tscn") as PackedScene
@@ -54,10 +62,6 @@ func create_player_node():
 	current_level.add_child(player)
 	player.global_position = current_level.send_checkpoint_start().global_position
 	camera.set_megaman(player)
-
-func go_to_level(level_name:String):
-	get_tree().change_scene_to_packed(Levels[level_name])
-	print("The player has moved to "+str(level_name))
 
 func get_player():
 	return player

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkwrxt6lg5qaa"]
 
 [ext_resource type="Script" uid="uid://ci57kmea0bwj6" path="res://Assets/Scripts/Gameplay/Checkpoints.gd" id="2_5p4mk"]
-[ext_resource type="Script" uid="uid://bmyxc48fhqujq" path="res://Assets/Game/death_zones.gd" id="2_hdyrw"]
+[ext_resource type="Script" uid="uid://bmyxc48fhqujq" path="res://Assets/Scripts/Gameplay/death_zones.gd" id="2_hdyrw"]
 
 [sub_resource type="TileSet" id="TileSet_ivu4x"]
 

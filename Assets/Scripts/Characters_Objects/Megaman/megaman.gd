@@ -40,13 +40,13 @@ func _init() -> void: #Ici j'initialise toutes les variables 'abstraites" de Sup
 	}
 	#Créer une fonction utilisée par Game_Manager qui set ces valeurs 
 	energy_levels={
-		NomsCommuns.Weapon_Names.ROLLING_CUTTER : energy_max_level,
-		NomsCommuns.Weapon_Names.SUPER_ARM : energy_max_level,
-		NomsCommuns.Weapon_Names.ICE_SLASHER : energy_max_level,
-		NomsCommuns.Weapon_Names.HYPER_BOMB : energy_max_level,
-		NomsCommuns.Weapon_Names.FIRE_STORM : energy_max_level,
-		NomsCommuns.Weapon_Names.THUNDER_BEAM : energy_max_level,
-		NomsCommuns.Weapon_Names.MAGNET_BEAM : energy_max_level
+		NomsCommuns.Weapon_Names.ROLLING_CUTTER : max_energy,
+		NomsCommuns.Weapon_Names.SUPER_ARM : max_energy,
+		NomsCommuns.Weapon_Names.ICE_SLASHER : max_energy,
+		NomsCommuns.Weapon_Names.HYPER_BOMB : max_energy,
+		NomsCommuns.Weapon_Names.FIRE_STORM : max_energy,
+		NomsCommuns.Weapon_Names.THUNDER_BEAM : max_energy,
+		NomsCommuns.Weapon_Names.MAGNET_BEAM : max_energy
 	}
 
 func _input(event):
@@ -198,7 +198,8 @@ func megaman_shooting():
 					is_holding_super_arm_rock = true
 					rock_a_proximite=null
 				else:
-					print("Error: rock_a_proximité est null")
+					pass
+					#print("Error: rock_a_proximité est null")
 			else :
 				EventBus.emit_signal("launch_rocks", direction_bullet)
 				is_holding_super_arm_rock = false

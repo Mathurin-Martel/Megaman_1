@@ -1,6 +1,16 @@
 @tool #Pour pouvoir utiliser ses fonctions en mode tool
 extends Node
 
+enum Type_Donnees_Sauvegarde{
+	PLAYABLE_CHARACTER,
+	WORLD
+}
+
+enum Playable_Characters{
+	MEGAMAN
+	#Si on ajoute un autre personnage jouable alors ce sera ici.
+}
+
 enum Weapon_Names{
 	MEGA_BUSTER,
 	ROLLING_CUTTER,

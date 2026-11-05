@@ -3,6 +3,9 @@ extends Node
 
 signal freeze_megaman
 
+#signal pour load les niveaux
+signal load_level(level_to_load : NomsCommuns.Level_Names)
+
 #Le signal pour tous les ennemis/objets qui ont besoin de connaitre MegaMan
 signal PlayerIsHere(player_infos : CharacterBody2D)
 
@@ -11,6 +14,10 @@ signal change_weapon(arme_choisi : NomsCommuns.Weapon_Names)
 
 #Les signaux pour le menu
 signal open_menu
+
+#Les signaux relatifs a la sauvegarde
+signal envoi_donnees_sauvegarde(dictionnaire_donnees:Dictionary)
+
 #Ces deux signaux sont la parce que je veux stocker les valeurs uniquement dans megaman.gd
 signal set_health_bar(current_health : int)
 signal set_energy_bar(current_energy_level:int, energy_bar_concerne:NomsCommuns.Weapon_Names)
@@ -41,6 +48,8 @@ signal entered_ladder_end_platform
 signal exited_ladder_end_platform
 
 #Pour camera.gd
+signal set_camera
+signal set_level_select_screen_camera(level_select_screen_node : Node2D)
 signal transition_camera_x_unrestricted(x_marker1:Marker2D, x_marker2:Marker2D)
 signal transition_camera_x_restricted(x_marker:Marker2D)
 signal transition_camera_y_unrestricted(y_marker1:Marker2D, y_marker2:Marker2D)

@@ -11,14 +11,19 @@ var y_marker1:Marker2D = null
 var y_marker2:Marker2D = null
 
 func _init() -> void:
+	EventBus.set_level_select_screen_camera.connect(_set_level_select_screen_camera)
+	EventBus.set_camera.connect(_set_camera)
 	EventBus.transition_camera_x_unrestricted.connect(_on_transition_camera_x_unrestricted)
 	EventBus.transition_camera_x_restricted.connect(_on_transition_camera_x_restricted)
 	EventBus.transition_camera_y_unrestricted.connect(_on_transition_camera_y_unrestricted)
 	EventBus.transition_camera_y_restricted.connect(_on_transition_camera_y_restricted)
 
+func _set_level_select_screen_camera(level_select_screen_node : Node2D):
+	self.global_position = level_select_screen_node.global_position
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	set_screen_position()
+func _set_camera():
+	set_screen_position_to_player()
 	await get_tree().process_frame
 	position_smoothing_enabled = true
 	position_smoothing_speed = 7.0
@@ -29,9 +34,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#Voir a quoi ca sert. Il l'explique dans la vidéo mais je ne suis pas sur d'avoir tout bien compris
-	set_screen_position()
+	if player_node != null:
+		set_screen_position_to_player()
 
-func set_screen_position():
+func set_screen_position_to_player():
 	var player_pos= player_node.global_position
 	var x
 	var y

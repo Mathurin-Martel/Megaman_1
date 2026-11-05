@@ -187,8 +187,6 @@ collision_layer = 256
 collision_mask = 0
 script = ExtResource("1_eef0c")
 level_name = 1
-horizontal_speed = 4
-vertical_speed = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1999934126]
 shape = SubResource("RectangleShape2D_6torn")
