@@ -18,7 +18,7 @@ Musiques et Bruitages :<br/>
 -Retrouver le site
 
 Maintenant voici une présentation des différentes versions.<br/>
-(Pour la 0.05 et la 0.06, les listes ne sont pas exhaustives. J'ai oublié de les noter au fur.)<br/>
+(Pour la 0.05 et la 0.06, les listes ne sont pas exhaustives. J'ai oublié de les noter au fur et a mesure.)<br/>
 
 Version 0.05 :<br/>
 - Niveau de BombMan entièrement recréé.
