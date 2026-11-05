@@ -11,10 +11,10 @@ La voici : var y = lerp(depart.y, arrivee.y, progression) - 4.0 * hauteur_en_plu
 N'arrivant pas a trouver la bonne formule mathématique, je l'ai demandé a ChatGPT. Il y a cependant une explication complète dans le fichier. Cette explication est de moi.<br/>
 
 Sprites:<br/>
--https://www.spriters-resource.com/nes/mm/
+-https://www.spriters-resource.com/nes/mm/ <br/>
 -Retrouver le site
 
-Musiques et Bruitages :
+Musiques et Bruitages :<br/>
 -Retrouver le site
 
 Maintenant voici une présentation des différentes versions.<br/>
