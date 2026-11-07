@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/MegaFont.png-8ad6dd9f463897c838d4c3ca78c18414
 
 [params]
 
-character_ranges=PackedStringArray("\'0\'-\'9\'", "\'A\'-\'Z\'")
+character_ranges=PackedStringArray("\'0\'-\'9\'", "\'A\'-\'Z\'", "\'©\'", "\' \'")
 kerning_pairs=PackedStringArray()
 columns=10
 rows=4

@@ -95,7 +95,6 @@ func make_boss_jump():
 		#La formule suivante a été trouvée avec l'aide de ChatGPT.
 		#L'explication suivante vient cependant entièrement de moi.
 		var y = lerp(depart.y, arrivee.y, progression) - 4.0 * hauteur_en_plus * progression * (1.0 - progression)
-		print("4.0 = "+str(1/((duree/2) ** 2)))
 		#progression * (1.0 * progression) permet de faire une parabole. 
 		#Ca commence a 0 monte a 0.5 * 0.5 = 0.25 puis redescend a 0.
 		#Pourquoi 4.0? Parce qu'on compense le 0.25 de la parabole.

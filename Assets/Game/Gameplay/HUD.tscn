@@ -326,9 +326,9 @@ expand_mode = 1
 [node name="NombresDeVies" type="RichTextLabel" parent="Menu/1-UPCount" unique_id=1362563912]
 layout_mode = 0
 offset_left = 28.0
-offset_top = -1.5
-offset_right = 222.5
-offset_bottom = 86.5
+offset_top = 5.8332977
+offset_right = 37.333344
+offset_bottom = 16.333298
 theme_override_fonts/normal_font = ExtResource("8_fewv2")
 theme_override_font_sizes/normal_font_size = 8
 text = "3"

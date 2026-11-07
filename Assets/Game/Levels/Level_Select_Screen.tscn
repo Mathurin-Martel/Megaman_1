@@ -583,29 +583,16 @@ text = "BOSSNAME"
 scroll_active = false
 visible_characters_behavior = 1
 
-[node name="Clear" type="RichTextLabel" parent="Elements/Score Text" unique_id=1405044796]
+[node name="Clear Points" type="RichTextLabel" parent="Elements/Score Text" unique_id=1405044796]
 material = SubResource("ShaderMaterial_7e5ju")
 layout_mode = 0
 offset_left = 7.5
 offset_top = -10.0
-offset_right = 91.0
+offset_right = 110.5
 offset_bottom = 8.5
 theme_override_fonts/normal_font = ExtResource("2_7e5ju")
 theme_override_font_sizes/normal_font_size = 8
-text = "CLEAR"
-scroll_active = false
-visible_characters_behavior = 1
-
-[node name="Points" type="RichTextLabel" parent="Elements/Score Text" unique_id=1289573932]
-material = SubResource("ShaderMaterial_7e5ju")
-layout_mode = 0
-offset_left = 56.0
-offset_top = -10.5
-offset_right = 139.5
-offset_bottom = 8.0
-theme_override_fonts/normal_font = ExtResource("2_7e5ju")
-theme_override_font_sizes/normal_font_size = 8
-text = "POINTS"
+text = "CLEAR POINTS"
 scroll_active = false
 visible_characters_behavior = 1
 

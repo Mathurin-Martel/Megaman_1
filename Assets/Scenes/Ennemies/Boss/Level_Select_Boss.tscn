@@ -1417,6 +1417,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Timer Between Special and Text" type="Timer" parent="Timers" unique_id=1428789789]
+wait_time = 1.5
 one_shot = true
 
 [connection signal="timeout" from="Timers/Timer Between Jump And Special" to="." method="_on_timer_between_jump_and_special_timeout"]

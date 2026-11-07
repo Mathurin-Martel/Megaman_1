@@ -10,6 +10,7 @@ enum Scenes_Names {
 var Scenes={}
 
 #Path des niveaux
+var title_screen = "res://Assets/Scenes/Ennemies/Boss/Title_Screen.tscn"
 var level_select_screen = "res://Assets/Game/Levels/Level_Select_Screen.tscn"
 var Levels = {
 	NomsCommuns.Level_Names.ABANDONED_SAWMILL : "res://Assets/Game/Levels/Bomb Man/bomb_man_level.tscn",
@@ -29,10 +30,15 @@ var player : SuperMainCharacter = null
 func _ready() -> void:
 	hud = get_tree().get_first_node_in_group("HUD")
 	level_container = get_tree().get_first_node_in_group("Level Container")
-	load_level_select_screen()
+	load_title_screen()
+	EventBus.load_level_select_screen.connect(_load_level_select_screen)
 	EventBus.load_level.connect(_load_playable_level)
 
-func load_level_select_screen() :
+func load_title_screen():
+	load_level(title_screen)
+	EventBus.emit_signal("set_level_select_screen_camera", current_level)
+
+func _load_level_select_screen() :
 	load_level(level_select_screen)
 	EventBus.emit_signal("set_level_select_screen_camera", current_level)
 

@@ -6,8 +6,7 @@ extends Node2D
 @onready var background_animation : AnimationPlayer = $"BackgroundAnimation"
 @onready var flickering_animation : AnimationPlayer = $"FlickeringAnimation"
 @onready var boss_name_text : RichTextLabel  = $"Elements/Score Text/Boss Name"
-@onready var clear_text : RichTextLabel  = $"Elements/Score Text/Clear"
-@onready var points_text : RichTextLabel  = $"Elements/Score Text/Points"
+@onready var clear_points_text : RichTextLabel  = $"Elements/Score Text/Clear Points"
 @onready var number_text : RichTextLabel  = $"Elements/Score Text/Number"
 @onready var select_text : RichTextLabel = $"Elements/Other Text/Select"
 #Pour faire clignoter "Select Stage Press Start" on n'a besoin que d'un seul élément car les shaders sont liés
@@ -68,7 +67,7 @@ func _ready() -> void:
 			Boxes[key].select_screen_boss_special_start.connect(_launch_screen_color_stabilisation)
 			Boxes[key].select_screen_boss_animation_over.connect(_launch_text_animation)
 	
-	liste_texte = [boss_name_text, clear_text, points_text, number_text]
+	liste_texte = [boss_name_text, clear_points_text, number_text]
 	for x in len(liste_texte) :
 		liste_texte[x].visible_ratio = 0.0
 
@@ -159,7 +158,7 @@ func _input(event: InputEvent) -> void:
 						Boxes[key].start_boss_animation()
 
 func change_curseur_liste_levels(deplacement : int) :
-	if curseur_liste_levels + deplacement >= len(liste_levels): #Donc si curseur == 5
+	if curseur_liste_levels + deplacement >= len(liste_levels):
 		curseur_liste_levels = 0
 	elif curseur_liste_levels + deplacement < 0: #Donc si curseur == 0
 		curseur_liste_levels = len(liste_levels)-1

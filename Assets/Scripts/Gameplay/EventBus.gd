@@ -4,6 +4,7 @@ extends Node
 signal freeze_megaman
 
 #signal pour load les niveaux
+signal load_level_select_screen
 signal load_level(level_to_load : NomsCommuns.Level_Names)
 
 #Le signal pour tous les ennemis/objets qui ont besoin de connaitre MegaMan
