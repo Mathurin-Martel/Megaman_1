@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlxuvsomc53a6"
-path="res://.godot/imported/horizontal_bar_megaman.png-34306b40eff7fa7cb3a6daa619951d10.ctex"
+path="res://.godot/imported/Horizontal_Bar_Megaman.png-6f876eee99549aeebb211474e6bd5cd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD/horizontal_bar_megaman.png"
-dest_files=["res://.godot/imported/horizontal_bar_megaman.png-34306b40eff7fa7cb3a6daa619951d10.ctex"]
+source_file="res://Assets/Sprites/HUD/Horizontal_Bar_Megaman.png"
+dest_files=["res://.godot/imported/Horizontal_Bar_Megaman.png-6f876eee99549aeebb211474e6bd5cd3.ctex"]
 
 [params]
 

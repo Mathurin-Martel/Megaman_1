@@ -22,7 +22,7 @@ class_name HUD
 			Menu.set_colors(level_name)
 
 func _ready() -> void:
-	EventBus.open_menu.connect(_open_menu)
+	#EventBus.open_menu.connect(_open_menu)
 	EventBus.set_health_bar.connect(_set_health_bar)
 	EventBus.set_energy_bar.connect(_set_energy_bar)
 	EventBus.set_nombre_de_vie_menu.connect(_set_nombre_de_vie_menu)

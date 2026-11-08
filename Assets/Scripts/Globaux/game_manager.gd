@@ -10,12 +10,15 @@ enum Scenes_Names {
 var Scenes={}
 
 #Path des niveaux
-var title_screen = "res://Assets/Scenes/Ennemies/Boss/Title_Screen.tscn"
-var level_select_screen = "res://Assets/Game/Levels/Level_Select_Screen.tscn"
+var title_screen = "res://Assets/Scenes/Game Scenes/Levels/Functional Level/Title_Screen.tscn"
+var level_select_screen = "res://Assets/Scenes/Game Scenes/Levels/Functional Level/Level_Select_Screen.tscn"
 var Levels = {
-	NomsCommuns.Level_Names.ABANDONED_SAWMILL : "res://Assets/Game/Levels/Bomb Man/bomb_man_level.tscn",
-	NomsCommuns.Level_Names.ORB_CITY : "res://Assets/Game/Levels/Bomb Man/bomb_man_level.tscn",
-	NomsCommuns.Level_Names.STEEL_FOUNDRY : "steel_foundry"
+	NomsCommuns.Level_Names.ABANDONED_SAWMILL : "res://Assets/Scenes/Game Scenes/Levels/Playable Levels/Bombman_Level.tscn",
+	NomsCommuns.Level_Names.MOUNTAIN_MINES : "res://Assets/Scenes/Game Scenes/Levels/Playable Levels/Bombman_Level.tscn",
+	NomsCommuns.Level_Names.FROZEN_JUNGLE : "res://Assets/Scenes/Game Scenes/Levels/Playable Levels/Bombman_Level.tscn",
+	NomsCommuns.Level_Names.ORB_CITY : "res://Assets/Scenes/Game Scenes/Levels/Playable Levels/Bombman_Level.tscn",
+	NomsCommuns.Level_Names.STEEL_FOUNDRY : "res://Assets/Scenes/Game Scenes/Levels/Playable Levels/Bombman_Level.tscn",
+	NomsCommuns.Level_Names.ELECTRICITY_TOWER : "res://Assets/Scenes/Game Scenes/Levels/Playable Levels/Bombman_Level.tscn"
 }
 
 var starting_level = NomsCommuns.Level_Names.ORB_CITY
@@ -63,7 +66,7 @@ func _load_playable_level(level_to_load : NomsCommuns.Level_Names):
 	EventBus.emit_signal("set_camera")
 
 func create_player_node():
-	var player_scene = load("res://Assets/Scenes/Megaman/megaman.tscn") as PackedScene
+	var player_scene = load("res://Assets/Scenes/Characters Objects Scenes/Playable Characters/Megaman.tscn") as PackedScene
 	player = player_scene.instantiate()
 	current_level.add_child(player)
 	player.global_position = current_level.send_checkpoint_start().global_position

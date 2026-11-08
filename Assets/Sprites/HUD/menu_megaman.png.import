@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vgaiorto54oq"
-path="res://.godot/imported/menu_megaman.png-973cba4e9d8465d265451d0bcbc2c8f0.ctex"
+path="res://.godot/imported/Menu_Megaman.png-116601a58767aeba3a09949c7e2cb544.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD/menu_megaman.png"
-dest_files=["res://.godot/imported/menu_megaman.png-973cba4e9d8465d265451d0bcbc2c8f0.ctex"]
+source_file="res://Assets/Sprites/HUD/Menu_Megaman.png"
+dest_files=["res://.godot/imported/Menu_Megaman.png-116601a58767aeba3a09949c7e2cb544.ctex"]
 
 [params]
 

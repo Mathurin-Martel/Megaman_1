@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dej2igxa4uqwd"]
+
+[ext_resource type="PackedScene" uid="uid://u3rao2du1ims" path="res://Assets/Scenes/Game Scenes/Gameplay/HUD.tscn" id="1_w12wr"]
+[ext_resource type="PackedScene" uid="uid://ckbvhwctij64n" path="res://Assets/Scenes/Game Scenes/Gameplay/Camera.tscn" id="2_uqjvu"]
+
+[node name="Gameplay" type="Node2D" unique_id=286123428]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1816315479]
+
+[node name="HUD" parent="CanvasLayer" unique_id=466511455 instance=ExtResource("1_w12wr")]
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Level Container" type="Node2D" parent="." unique_id=759054093 groups=["Level Container"]]
+
+[node name="Camera" parent="." unique_id=505478149 instance=ExtResource("2_uqjvu")]

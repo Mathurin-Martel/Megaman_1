@@ -2,11 +2,11 @@
 extends Node
 
 var chemin_loot ={ #Les chances que j'ai trouvée sur Internet sont sur 128
-	NomsCommuns.Item_Names.SCORE_BALL : preload("res://Assets/Scenes/Objets/Score_Ball.tscn"),
-	NomsCommuns.Item_Names.HEALTH_REFILL : preload("res://Assets/Scenes/Objets/Health_Refill.tscn"),
-	NomsCommuns.Item_Names.ENERGY_REFILL : preload("res://Assets/Scenes/Objets/Energy_Refill.tscn"),
-	NomsCommuns.Item_Names.ONE_UP : preload("res://Assets/Scenes/Objets/One_UP.tscn"),
-	NomsCommuns.Item_Names.WEAPON_HEART_PLUS : preload("res://Assets/Scenes/Objets/Weapon_Heart+.tscn"),
+	NomsCommuns.Item_Names.SCORE_BALL : preload("res://Assets/Scenes/Characters Objects Scenes/Objets/Items/Score_Ball.tscn"),
+	NomsCommuns.Item_Names.HEALTH_REFILL : preload("res://Assets/Scenes/Characters Objects Scenes/Objets/Items/Health_Refill.tscn"),
+	NomsCommuns.Item_Names.ENERGY_REFILL : preload("res://Assets/Scenes/Characters Objects Scenes/Objets/Items/Energy_Refill.tscn"),
+	NomsCommuns.Item_Names.ONE_UP : preload("res://Assets/Scenes/Characters Objects Scenes/Objets/Items/One_UP.tscn"),
+	NomsCommuns.Item_Names.WEAPON_HEART_PLUS : preload("res://Assets/Scenes/Characters Objects Scenes/Objets/Items/Weapon_Heart+.tscn"),
 }
 
 func create(position, type_loot:NomsCommuns.Item_Names, infos_additionnelles:Array[NomsCommuns.Item_Info]) -> SuperLoot:

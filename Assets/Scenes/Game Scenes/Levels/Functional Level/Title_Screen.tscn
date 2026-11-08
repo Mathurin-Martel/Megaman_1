@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://b5jnlkkxfwk3r"]
+
+[ext_resource type="Texture2D" uid="uid://exfo13vggj4x" path="res://Assets/Sprites/Screen Sprites/titre_final_agrandi.png" id="1_yetfh"]
+[ext_resource type="Script" uid="uid://ilat06aodyde" path="res://Assets/Scripts/Levels/Title_Screen.gd" id="2_qjtph"]
+[ext_resource type="FontFile" uid="uid://brm4rh44b06jb" path="res://Assets/MegaFont/MegaFont.png" id="3_mty6r"]
+[ext_resource type="Shader" uid="uid://ckhhlri7eu6lx" path="res://Assets/Shaders/Texte_Clignotant_Shader.gdshader" id="4_yay6s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nl7ng"]
+shader = ExtResource("4_yay6s")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_te3nm"]
+shader = ExtResource("4_yay6s")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tmtfv"]
+shader = ExtResource("4_yay6s")
+shader_parameter/using_shader = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wvxa"]
+shader = ExtResource("4_yay6s")
+shader_parameter/using_shader = false
+
+[sub_resource type="Animation" id="Animation_tmtfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:clignotant_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_te3nm"]
+resource_name = "flickering"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:clignotant_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tmtfv"]
+_data = {
+&"RESET": SubResource("Animation_tmtfv"),
+&"flickering": SubResource("Animation_te3nm")
+}
+
+[node name="Title Screen" type="Sprite2D" unique_id=1819417295]
+scale = Vector2(2, 2)
+texture = ExtResource("1_yetfh")
+script = ExtResource("2_qjtph")
+
+[node name="Mentions Légales" type="Control" parent="." unique_id=175150591]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -48.0
+offset_top = 97.0
+offset_right = -8.0
+offset_bottom = 137.0
+
+[node name="©Capcom  1987" type="RichTextLabel" parent="Mentions Légales" unique_id=212945358]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("3_mty6r")
+theme_override_font_sizes/normal_font_size = 8
+text = "©CAPCOM 1987"
+scroll_active = false
+
+[node name="Mathurin Martel 2026" type="RichTextLabel" parent="Mentions Légales" unique_id=2089449741]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 11.0
+offset_right = 128.0
+offset_bottom = 51.0
+theme_override_fonts/normal_font = ExtResource("3_mty6r")
+theme_override_font_sizes/normal_font_size = 8
+text = "MATHURIN MARTEL 2026"
+scroll_active = false
+
+[node name="Texte Clignotant" type="Control" parent="." unique_id=691855017]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -44.0
+offset_top = 67.0
+offset_right = -4.0
+offset_bottom = 107.0
+
+[node name="Press Start" type="RichTextLabel" parent="Texte Clignotant" unique_id=28903866]
+material = SubResource("ShaderMaterial_nl7ng")
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("3_mty6r")
+theme_override_font_sizes/normal_font_size = 8
+text = "PRESS START"
+scroll_active = false
+
+[node name="New Game" type="RichTextLabel" parent="Texte Clignotant" unique_id=181605452]
+material = SubResource("ShaderMaterial_te3nm")
+layout_mode = 0
+offset_left = -77.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 53.0
+theme_override_fonts/normal_font = ExtResource("3_mty6r")
+theme_override_font_sizes/normal_font_size = 8
+text = "NEW GAME"
+scroll_active = false
+
+[node name="Continue" type="RichTextLabel" parent="Texte Clignotant" unique_id=480604277]
+material = SubResource("ShaderMaterial_tmtfv")
+layout_mode = 0
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 76.0
+offset_bottom = 53.0
+theme_override_fonts/normal_font = ExtResource("3_mty6r")
+theme_override_font_sizes/normal_font_size = 8
+text = "CONTINUE"
+scroll_active = false
+
+[node name="Options" type="RichTextLabel" parent="Texte Clignotant" unique_id=660430368]
+material = SubResource("ShaderMaterial_3wvxa")
+layout_mode = 0
+offset_left = 103.0
+offset_top = 13.0
+offset_right = 167.0
+offset_bottom = 53.0
+theme_override_fonts/normal_font = ExtResource("3_mty6r")
+theme_override_font_sizes/normal_font_size = 8
+text = "OPTIONS"
+scroll_active = false
+
+[node name="FlickeringAnimation" type="AnimationPlayer" parent="." unique_id=498635155]
+libraries/ = SubResource("AnimationLibrary_tmtfv")
