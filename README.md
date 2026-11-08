@@ -40,15 +40,34 @@ Informations : </br>
 Voici maintenant la description des différentes versions du jeu : </br>
 
 Version 0.05 : </br>
--
+- Personnage de Megaman ajouté. (Il lui manque l'animation de quand il prend des dégâts)
+- Ajout de plusieurs armes pour Megaman. (Il ne manque que l'Hyper Bomb et le Magnet Beam)
+- Ajout de PV et de point d'énergie pour Megaman.
+- Ajout d'un menu sur le HUD ainsi que d'une barre de vie et d'énergie. Le menu montre le nombre de vies et permettra, dans de futures versions, de choisir son arme.
+- Niveau de Bombman complètement refait (sans les ennemis)
+- Ajouts d'échelles.
+- Ajout de pics.
+- Ajout de portes.
+- Ajout de l'ennemi Sniper Joe (Il ne sait pas tirer ni utiliser son bouclier)
+- Changement de comportement pour la caméra (Elle peut avancer case par case ou en continu. Elle ne peut pas se rendre au-delà de certaines coordonnées.)
+- Fondation de mort ajoutée. (Ça manque de finitions. Le personnage ne meurt pas "bien" et ne réapparaît pas.)
+- Tous les items sauf un ont été rajoutés. Ils sont tous fonctionnels.
+- Ajout d'un système de spawner pouvant faire apparaître des items, des ennemis ou des rochers pour le Super Arm.
 
 Version 0.06 : </br>
--
+- Ajout des fondations d'un système de sauvegarde. (Pas terminé)
+- Ajout du menu de sélection des niveaux (ils mènent tous vers le niveau de Bombman)
 
 Version 0.07 : </br>
 - Ajout du fichier SaveFiles.
-- A ajouté ' ' et '©' a la police d'écriture.
+- A ajouté ' ' et '©' à la police d'écriture.
 - A ajouté le Title Screen.
 
 Version 0.07R : </br>
-- Grand rangement.
+- Grand rangement. L'arborescence a été revue et améliorée. Les fichiers inutiles ont été supprimés. Les fichiers commencent désormais tous par une majusucle.
+
+Ajouts à venir dans la version 0.08 :
+- Le système de sauvegarde deviendra fonctionnel.
+- Le système de mort sera complété.
+- Megaman prendra de façon visible des dégâts.
+- Sniper Joe apprendra à tirer et à utiliser son bouclier.
